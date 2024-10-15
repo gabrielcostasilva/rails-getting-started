@@ -26,6 +26,7 @@ Finally, start the server with: `bin/rails server`
 
 As a reference project, it underpins extensions, as:
 
+- [Basic HTTP authentication](https://github.com/gabrielcostasilva/rails-getting-started/tree/basic-auth)
 - [Adding authentication & authorisation with Devise](https://github.com/gabrielcostasilva/rails-getting-started/tree/auth-devise)
 - [Connecting to PostgreSQL](https://github.com/gabrielcostasilva/rails-getting-started/tree/postgres)
 - [Styling with Tailwind CSS](https://github.com/gabrielcostasilva/rails-getting-started/tree/tailwind)
