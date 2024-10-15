@@ -30,3 +30,4 @@ As a reference project, it underpins extensions, as:
 - [Adding authentication & authorisation with Devise](https://github.com/gabrielcostasilva/rails-getting-started/tree/auth-devise)
 - [Connecting to PostgreSQL](https://github.com/gabrielcostasilva/rails-getting-started/tree/postgres)
 - [Styling with Tailwind CSS](https://github.com/gabrielcostasilva/rails-getting-started/tree/tailwind)
+- [Debugging Rails projects](https://github.com/gabrielcostasilva/rails-getting-started/tree/debugging)
