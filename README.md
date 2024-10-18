@@ -16,7 +16,7 @@ First off, ensure you have the prerequisites to run a rails application, [which 
 
 Then, clone this repository: `git clone https://github.com/gabrielcostasilva/rails-getting-started.git`
 
-Next, update the database by running **in the project folder**: `bin/rails db:migrate`
+Next, update the database by running **in the project folder**: `bin/rails db:migrate`, and populate initial data with `db:seed`.
 
 Finally, start the server with: `bin/rails server`
 
