@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   def index
     @articles = Article.all
 
@@ -11,6 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    console
     @article = Article.new
   end
 
@@ -23,7 +23,6 @@ class ArticlesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-
   end
 
   def edit
@@ -40,7 +39,6 @@ class ArticlesController < ApplicationController
       render :edit, status: :unprocessable_entity
 
     end
-
   end
 
   def destroy
@@ -54,5 +52,4 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :body, :status)
     end
-
 end
