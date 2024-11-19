@@ -1,14 +1,19 @@
 class ArticlesController < ApplicationController
-
   def index
     @articles = Article.all
   end
 
   def show
+    ActiveSupport::Notifications.instrument("article.show", article_id: params[:id])
+
     @article = Article.find(params[:id])
   end
 
   def new
+    ActiveSupport::Notifications.instrument "article.new", this: :data do
+      "Born an Article"
+    end
+
     @article = Article.new
   end
 
@@ -20,7 +25,6 @@ class ArticlesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-
   end
 
   def edit
@@ -37,7 +41,6 @@ class ArticlesController < ApplicationController
       render :edit, status: :unprocessable_entity
 
     end
-
   end
 
   def destroy
@@ -51,5 +54,4 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :body, :status)
     end
-
 end
