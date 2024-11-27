@@ -1,33 +1,11 @@
-# RAILS GETTING STARTED PROJECT
-This project is an exercise of the official [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html) guide.
+# GETTING STARTED WITH RAILS - INSTRUMENTATION
+This project extends my [original Rails Getting Started project](https://github.com/gabrielcostasilva/rails-getting-started.git) by adding instrumentation to the application.
 
-One can follow along the entire process by checking out each commit in this project.
+In Rails terms, _instrumentation_ means dispatching and responding to events. Instrumentation is natively provided in Rails by the [ActiveSupport::Notifications module](https://guides.rubyonrails.org/v7.1/active_support_instrumentation.html). This module provides a pub-sub mechanism for wiring up event listeners to event publishers.
 
 ## Project Overview
-The project builds a blog website, with articles and comments. It also has a very basic authentication example.
+To test the feature, I've instrumented [`articles_controller#show`](./app/controllers/articles_controller.rb) and [`articles_controller#new`](./app/controllers/articles_controller.rb) so they dispatches an event every time the methods are used. 
 
-<img src="getting-started.gif" />
+The event is then captured by a listener that logs the event to the console ([`logging.rb`](./config/initializers/logging.rb)).
 
-## Running the Project
-First off, ensure you have the prerequisites to run a rails application, [which are](https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project-installing-rails):
-- Ruby
-- Rails
-- SQLite
-
-Then, clone this repository: `git clone https://github.com/gabrielcostasilva/rails-getting-started.git`
-
-Next, update the database by running **in the project folder**: `bin/rails db:migrate`, and populate initial data with `db:seed`.
-
-Finally, start the server with: `bin/rails server`
-
-> All these commands must be run from your console in the project folder.
-
-## Project Branches
-
-As a reference project, it underpins extensions, as:
-
-- [Basic HTTP authentication](https://github.com/gabrielcostasilva/rails-getting-started/tree/basic-auth)
-- [Adding authentication & authorisation with Devise](https://github.com/gabrielcostasilva/rails-getting-started/tree/auth-devise)
-- [Connecting to PostgreSQL](https://github.com/gabrielcostasilva/rails-getting-started/tree/postgres)
-- [Styling with Tailwind CSS](https://github.com/gabrielcostasilva/rails-getting-started/tree/tailwind)
-- [Debugging Rails projects](https://github.com/gabrielcostasilva/rails-getting-started/tree/debugging)
+One can follow along by running the project and checking the console output when accessing the routes `/articles/new` and `/articles/show`.
