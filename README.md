@@ -31,3 +31,4 @@ As a reference project, it underpins extensions, as:
 - [Connecting to PostgreSQL](https://github.com/gabrielcostasilva/rails-getting-started/tree/postgres)
 - [Styling with Tailwind CSS](https://github.com/gabrielcostasilva/rails-getting-started/tree/tailwind)
 - [Debugging Rails projects](https://github.com/gabrielcostasilva/rails-getting-started/tree/debugging)
+- [Working with event (_instrumentation_)][https://github.com/gabrielcostasilva/rails-getting-started/tree/instrumentation-events]
