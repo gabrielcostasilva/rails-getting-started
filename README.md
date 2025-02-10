@@ -32,3 +32,4 @@ As a reference project, it underpins extensions, as:
 - [Styling with Tailwind CSS](https://github.com/gabrielcostasilva/rails-getting-started/tree/tailwind)
 - [Debugging Rails projects](https://github.com/gabrielcostasilva/rails-getting-started/tree/debugging)
 - [Working with event (_instrumentation_)](https://github.com/gabrielcostasilva/rails-getting-started/tree/instrumentation-events)
+- [Profiling with `rack-mini-profiler`](https://github.com/gabrielcostasilva/rails-getting-started/tree/profiling)
