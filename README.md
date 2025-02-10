@@ -1,34 +1,35 @@
-# RAILS GETTING STARTED PROJECT
-This project is an exercise of the official [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html) guide.
+# GETTING STARTED WITH RAILS - PROFILING
+_Profiling_ is a technique to measuring application performance. It is often used to identifying bottlenecks and optimizing an application.
 
-One can follow along the entire process by checking out each commit in this project.
+This project extends my [original Rails Getting Started project](https://github.com/gabrielcostasilva/rails-getting-started.git) by adding [`rack-mini-profiler`](https://github.com/MiniProfiler/rack-mini-profiler) gem.
 
 ## Project Overview
-The project builds a blog website, with articles and comments. It also has a very basic authentication example.
+Using `rack-mini-profiler` is as easy as adding it to your Gemfile and running `bundle install`. It will automatically profile your application and display the results in the top left corner of your application as so:
 
-<img src="getting-started.gif" />
+<img src="./Screen Shot 2025-02-10 at 15.07.11.png" width="400"/>
 
-## Running the Project
-First off, ensure you have the prerequisites to run a rails application, [which are](https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project-installing-rails):
-- Ruby
-- Rails
-- SQLite
+Just click the profiled section to see the details:
 
-Then, clone this repository: `git clone https://github.com/gabrielcostasilva/rails-getting-started.git`
+<img src="./Screen Shot 2025-02-10 at 15.07.24.png" width="400"/>
 
-Next, update the database by running **in the project folder**: `bin/rails db:migrate`, and populate initial data with `db:seed`.
+You can also _drill down_ into each section:
 
-Finally, start the server with: `bin/rails server`
+<img src="./Screen Shot 2025-02-10 at 15.07.39.png" width="400"/>
 
-> All these commands must be run from your console in the project folder.
+Click the link to go even further:
 
-## Project Branches
+<img src="./Screen Shot 2025-02-10 at 15.08.01.png" width="400"/>
 
-As a reference project, it underpins extensions, as:
+One can also instrument the code to profile specific sections of the code. For example, the following code will profile a query, naming it "Retrieving data":
 
-- [Basic HTTP authentication](https://github.com/gabrielcostasilva/rails-getting-started/tree/basic-auth)
-- [Adding authentication & authorisation with Devise](https://github.com/gabrielcostasilva/rails-getting-started/tree/auth-devise)
-- [Connecting to PostgreSQL](https://github.com/gabrielcostasilva/rails-getting-started/tree/postgres)
-- [Styling with Tailwind CSS](https://github.com/gabrielcostasilva/rails-getting-started/tree/tailwind)
-- [Debugging Rails projects](https://github.com/gabrielcostasilva/rails-getting-started/tree/debugging)
-- [Working with event (_instrumentation_)](https://github.com/gabrielcostasilva/rails-getting-started/tree/instrumentation-events)
+```ruby
+class CommentsController < ApplicationController
+    def create
+        Rack::MiniProfiler.step("Retrieving data") do
+            @article = Article.find(params[:article_id])
+        end
+
+(...)
+```
+
+<img src="./Screen Shot 2025-02-10 at 15.14.01.png" width="400"/>
